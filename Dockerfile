@@ -9,8 +9,11 @@ FROM    nodesource/node:wheezy
 
 # App
 ADD . /src
+
+WORKDIR /src
+
 # Install app dependencies
-RUN cd /src; npm install
+RUN npm install
 
 EXPOSE  8080
 CMD ["npm", "start"]
