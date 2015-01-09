@@ -5,6 +5,7 @@
   "description": "Node.js Hello World app on CentOS using docker",
   "author": "Daniel Gasienica <daniel@gasienica.ch>",
   "scripts": {
+    "start": "node app.js",
     "test": "./node_modules/.bin/mocha"
   },
   "dependencies": {
