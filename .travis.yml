@@ -1,7 +1,12 @@
 language: node_js
+
+env:
+  global:
+    secure: aOuy+eeAtRTZ//bhHQ7M8Zeaak4q6r3xkYCl/x/InUKq3Cbys8o54ulZTcr2cBKWCtHa7o+DqW1an7jRrMVKkwO/gNZFWP/PmifnUPBRBwJWIcWdLd3eM1zjfo/0od8fxlHMf6h1xvC76JKpVwg1mJEUI5Qo5/IayGsDN3jtY28=
+
 node_js:
-  - "0.10"
-  - "0.11"
+  - '0.10'
+  - '0.11'
 
 git:
   depth: 1
@@ -9,7 +14,10 @@ git:
 matrix:
   fast_finish: true
   allow_failures:
-    - node_js: "0.11"
+    - node_js: '0.11'
+
+after_success:
+  - "curl --data 'build=true' -X POST https://registry.hub.docker.com/u/jlas/docker-node-hello/trigger/$TRIGGER_TOKEN/"
 
 notifications:
   email: false
